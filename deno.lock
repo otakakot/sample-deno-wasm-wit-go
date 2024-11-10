@@ -1,0 +1,16 @@
+{
+  "version": "4",
+  "specifiers": {
+    "npm:@bytecodealliance/preview2-shim@~0.17.1": "0.17.1"
+  },
+  "npm": {
+    "@bytecodealliance/preview2-shim@0.17.1": {
+      "integrity": "sha512-h1qLL0TN5KXk/zagY2BtbZuDX6xYjz4Br9RZXEa0ID4UpiPc0agUMhTdz9r89G4vX5SU/tqBg1A6UNv2+DJ5pg=="
+    }
+  },
+  "workspace": {
+    "dependencies": [
+      "npm:@bytecodealliance/preview2-shim@~0.17.1"
+    ]
+  }
+}

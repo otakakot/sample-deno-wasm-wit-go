@@ -1,0 +1,44 @@
+package docs:adder@0.1.0;
+// docs/adder/adder で Go のディレクトリも構成される
+
+// world が pacakge 名になる
+world adder {
+  import wasi:io/error@0.2.0;
+  import wasi:io/streams@0.2.0;
+  import wasi:cli/stdout@0.2.0;
+  import wasi:random/random@0.2.0;
+
+  export add: func(x: s32, y: s32) -> s32;
+}
+
+package wasi:io@0.2.0 {
+  interface error {
+    resource error;
+  }
+  interface streams {
+    use error.{error};
+
+    resource output-stream {
+      blocking-write-and-flush: func(contents: list<u8>) -> result<_, stream-error>;
+    }
+
+    variant stream-error {
+      last-operation-failed(error),
+      closed,
+    }
+  }
+}
+
+package wasi:cli@0.2.0 {
+  interface stdout {
+    use wasi:io/streams@0.2.0.{output-stream};
+
+    get-stdout: func() -> output-stream;
+  }
+}
+
+package wasi:random@0.2.0 {
+  interface random {
+    get-random-u64: func() -> u64;
+  }
+}

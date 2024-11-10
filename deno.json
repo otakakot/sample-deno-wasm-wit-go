@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@bytecodealliance/preview2-shim": "npm:@bytecodealliance/preview2-shim@^0.17.1"
+  }
+}
